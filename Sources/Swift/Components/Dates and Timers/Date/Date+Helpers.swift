@@ -411,6 +411,9 @@ extension Configuration where Type: UIDatePicker {
             picker.calendar = Calendar.current
             picker.timeZone = Calendar.current.timeZone
             picker.locale = Calendar.current.locale
+            picker.locale = Locale(identifier: "en_US_POSIX")
+            print(">>D+H: \(picker.timeZone),  \(picker.locale),  \(picker.calendar)")
         }
     }
 }
+

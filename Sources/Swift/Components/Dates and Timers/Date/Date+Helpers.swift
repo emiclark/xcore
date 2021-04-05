@@ -410,9 +410,7 @@ extension Configuration where Type: UIDatePicker {
             picker.minimumDate = minimumDate
             picker.calendar = Calendar.current
             picker.timeZone = Calendar.current.timeZone
-//            picker.locale = Calendar.current.locale
-            picker.locale = Locale(identifier: "en_US_POSIX")
+            picker.locale = Calendar.current.locale
         }
     }
 }
-

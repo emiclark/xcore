@@ -171,8 +171,10 @@ extension UILabel: TextAttributedTextRepresentable { }
 extension UIButton: TextAttributedTextRepresentable { }
 extension UITextField: TextAttributedTextRepresentable { }
 extension UITextView {
-    public func setText(_ string: StringRepresentable?) {
-        guard let string = string else {
+    public func setText(_ string: StringRepresentable?, _ acl: String? = nil) {
+        guard
+            let string = string,
+            let acl = acl else {
             text = nil
             attributedText = nil
             accessibilityLabel = nil
@@ -182,6 +184,11 @@ extension UITextView {
         switch string.stringSource {
             case .string(let string):
                 text = string
+                accessibilityValue = text
+                if acl != nil {
+                    accessibilityLabel = acl
+                    accessibilityValue = nil
+                }
             case .attributedString(let attributedString):
                 attributedText = attributedString
         }

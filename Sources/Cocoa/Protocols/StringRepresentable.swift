@@ -172,9 +172,7 @@ extension UIButton: TextAttributedTextRepresentable { }
 extension UITextField: TextAttributedTextRepresentable { }
 extension UITextView {
     public func setText(_ string: StringRepresentable?) {
-        guard
-            let string = string
-        else {
+        guard let string = string else {
             text = nil
             attributedText = nil
             accessibilityLabel = nil

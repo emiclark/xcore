@@ -171,7 +171,7 @@ extension UILabel: TextAttributedTextRepresentable { }
 extension UIButton: TextAttributedTextRepresentable { }
 extension UITextField: TextAttributedTextRepresentable { }
 extension UITextView {
-    public func setText(_ string: StringRepresentable?, _ containsPhoneNumber: Bool = false) {
+    public func setText(_ string: StringRepresentable?) {
         guard
             let string = string
         else {
@@ -184,9 +184,6 @@ extension UITextView {
         switch string.stringSource {
             case .string(let string):
                 text = string
-                if containsPhoneNumber {
-                    accessibilityValue = accessibilityValue?.replacing("-", with: " ")
-                }
             case .attributedString(let attributedString):
                 attributedText = attributedString
         }
